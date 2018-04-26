@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { WeatherProvider } from '../../providers/weather/weather';
 import { Storage } from '@ionic/storage';
-import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
+import { InAppBrowser } from "@ionic-native/in-app-browser";
 
 @Component({
   selector: 'page-home',
@@ -28,7 +28,7 @@ export class HomePage {
   }
 
   openWebpage() {
-    const browser = this.inAppBrowser.create(this.weather.forecast_url);
+    this.inAppBrowser.create(this.weather.forecast_url);
   }
 
 

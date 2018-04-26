@@ -19,6 +19,9 @@
       <ion-col width-100>
         <ion-list>
           <form (ngSubmit)="saveForm()">
+            <ion-item no-lines>
+                <ion-icon name="cog"></ion-icon> Change City and Country here:
+            </ion-item>
             <ion-item>
               <ion-label fixed>
                 City
@@ -31,7 +34,9 @@
               </ion-label>
               <ion-input [(ngModel)]="country" name="country" type="text"></ion-input>
             </ion-item>
-            <button ion-button type="submit" block>Save changes</button>
+            <ion-item no-lines>
+              <button ion-button type="submit" block>Save changes</button>
+            </ion-item>
           </form>
         </ion-list>
       </ion-col>

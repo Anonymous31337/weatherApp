@@ -5,13 +5,14 @@ $app-direction: ltr;
 @import "ionic.globals";
 
 $colors: (
-  primary:    #6495ed,
-  secondary:  #435d8c,
+  primary:    #141313,
+  secondary:  #525355,
   danger:     #f53d3d,
-  light:      #fff,
+  light:      rgb(226, 219, 219),
   dark:       #222
 );
 
+$background-color: #141313 !default;
 // Top Toolbar
 $toolbar-md-background: color($colors, secondary);
 // Bottom tabs
@@ -22,6 +23,14 @@ $tabs-md-tab-text-color: color($colors, light);
 
 $list-md-background-color: color($colors, secondary);
 $list-md-text-color: color($colors, light);
+
+//input fields
+
+$text-input-md-show-focus-highlight: color($colors, primary);
+$text-input-md-show-invalid-highlight: color($colors, primary);
+$text-input-md-highlight-color-valid: color($colors, primary);
+$text-input-md-highlight-color-invalid : color($colors, danger);
+
 
 @import "ionic.theme.default";
 @import "ionic.ionicons";
