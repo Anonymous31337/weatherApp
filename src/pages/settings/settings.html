@@ -26,17 +26,26 @@
               <ion-label fixed>
                 City
               </ion-label>
-              <ion-input [(ngModel)]="city" name="city" type="text"></ion-input>
+              <ion-input [(ngModel)]="city" name="city" type="text" ></ion-input>
             </ion-item>
-            <ion-item>
-              <ion-label fixed>
-                Country
-              </ion-label>
-              <ion-input [(ngModel)]="country" name="country" type="text"></ion-input>
-            </ion-item>
+            <ion-item no-lines>
+                <ion-label fixed>
+                    Country
+                </ion-label>
+              <ion-select [(ngModel)]="country" name="country" type="text" [placeholder]="country">
+              <ion-option *ngFor="let c of countries">
+                {{c.name}}
+                <!--<ion-avatar>
+                    <img src="{{c.flag}}">
+                </ion-avatar>-->
+              </ion-option>
+            </ion-select>
+          </ion-item>
             <ion-item no-lines>
               <button ion-button type="submit" block (click)="saveAlert()">Save changes</button>
             </ion-item>
+
+        
           </form>
         </ion-list>
       </ion-col>

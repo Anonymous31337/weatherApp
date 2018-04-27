@@ -32,9 +32,11 @@
           <ion-item no-lines>
             <strong>Feels like: </strong> <div item-right>{{weather.feelslike_c}}&deg;</div>
           </ion-item>
-          <ion-item>
-              <strong>Latitude: </strong> {{weather.display_location.latitude}}<br>
-              <strong>Logitude: </strong> {{weather.display_location.longitude}}
+          <ion-item no-lines>
+              <strong>Latitude: </strong> <div item-right>{{weather.display_location.latitude}}</div>
+          </ion-item>
+          <ion-item no-lines>
+              <strong>Logitude: </strong> <div item-right>{{weather.display_location.longitude}}</div>
           </ion-item>
         </ion-list>
       </ion-col>

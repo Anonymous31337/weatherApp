@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { /*IonicPage,*/ NavController, NavParams, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
+import { RestApiProvider } from '../../providers/rest-api/rest-api';
 
 //@IonicPage()
 @Component({
@@ -13,10 +14,17 @@ export class SettingsPage {
   city:string;
   country:string;
 
+  countries: string[];
+  errorMessage: string;
+  descending: boolean = false;
+  order: number;
+  column: string = 'name';
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private alertCtrl: AlertController,
+    public rest: RestApiProvider,
     private storage: Storage) {
 
       this.storage.get('location').then((val) => {
@@ -51,5 +59,22 @@ export class SettingsPage {
     this.storage.set('location', JSON.stringify(location));
     this.navCtrl.goToRoot;
   }
+
+  ionViewDidLoad() {
+    this.getCountries();
+  }
+
+  getCountries() {
+    this.rest.getCountries()
+       .subscribe(
+         countries => this.countries = countries,
+         error =>  this.errorMessage = <any>error);
+  }
+
+  sort(){
+    this.descending = !this.descending;
+    this.order = this.descending ? 1 : -1;
+  }
+
 
 }
