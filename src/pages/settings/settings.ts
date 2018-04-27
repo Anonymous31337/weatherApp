@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { /*IonicPage,*/ NavController, NavParams } from 'ionic-angular';
+import { /*IonicPage,*/ NavController, NavParams, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
 
@@ -16,6 +16,7 @@ export class SettingsPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    private alertCtrl: AlertController,
     private storage: Storage) {
 
       this.storage.get('location').then((val) => {
@@ -31,18 +32,24 @@ export class SettingsPage {
       });
 
     }
+  
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingsPage');
-  }
+    saveAlert() {
+      let alert = this.alertCtrl.create({
+        title: 'Saved',
+        subTitle: 'changes saved',
+        buttons: ['OK']
+      });
+      alert.present();
+    }
 
-  saveForm(){
+   saveForm(){
     let location = {
       city: this.city,
       country: this.country
     }
     this.storage.set('location', JSON.stringify(location));
-    this.navCtrl.push(HomePage);
+    this.navCtrl.goToRoot;
   }
 
 }

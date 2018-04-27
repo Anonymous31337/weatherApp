@@ -35,7 +35,7 @@
               <ion-input [(ngModel)]="country" name="country" type="text"></ion-input>
             </ion-item>
             <ion-item no-lines>
-              <button ion-button type="submit" block>Save changes</button>
+              <button ion-button type="submit" block (click)="saveAlert()">Save changes</button>
             </ion-item>
           </form>
         </ion-list>
