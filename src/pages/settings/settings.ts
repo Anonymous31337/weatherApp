@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { /*IonicPage,*/ NavController, NavParams, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { HomePage } from '../home/home';
 import { RestApiProvider } from '../../providers/rest-api/rest-api';
 
 //@IonicPage()
